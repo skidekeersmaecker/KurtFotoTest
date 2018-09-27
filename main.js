@@ -15,12 +15,15 @@ function setPictures(divID, numberOfBlock) {
 }
 function setPicturesInHtml(divID, numberOfBlock) {
     var innerHtml = "<div class='Show' id='" + divID + "Show'>";
+    var imageNumber = "";
     for (var i = 1; i < 13; i++){
-        innerHtml += '<img src="pictures/' + numberOfBlock + "." + i + '.png" class="ShowPicture" id="' + divID + "ShowPicture" + i + '">';
+        imageNumber = numberOfBlock + "." + i;
+        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" id="' + divID + "ShowPicture" + i + '" onclick="ImageClick(' + imageNumber + ')">';
     }
     innerHtml += "</div><div class='Display' id='" + divID + "Display'>";
     for (var i = 1; i < 4; i++){
-        innerHtml += '<img src="pictures/' + numberOfBlock + "." + i + '.png" class="DisplayPicture" id="' + divID + "DisplayPicture" + i + '">';
+        imageNumber = numberOfBlock + "." + i;
+        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="DisplayPicture" id="' + divID + "DisplayPicture" + i + '" onclick="ImageClick(' + imageNumber + ')">';
     }
     innerHtml += "</div>";
     document.getElementById(divID).innerHTML = innerHtml;
@@ -34,3 +37,8 @@ function setSizesPicturesOfClass(className, amountOfImages) {
     }
 }
 
+function ImageClick(imageNumber) {
+    console.log(imageNumber);
+    //calculate images to display
+    //set images on display images
+}
