@@ -5,22 +5,22 @@ window.onload = function(){
 
 function setPictureBlocks() {
     for (var i = 1; i <= document.getElementsByClassName("PictureBlock").length; i++) {
-        setPictures("block" + i);
+        setPictures("block" + i, i);
     }
 }
-function setPictures(divID) {
-    setPicturesInHtml(divID);
+function setPictures(divID, numberOfBlock) {
+    setPicturesInHtml(divID, numberOfBlock);
     setSizesPicturesOfClass("ShowPicture", 12);
     setSizesPicturesOfClass("DisplayPicture", 3);
 }
-function setPicturesInHtml(divID) {
+function setPicturesInHtml(divID, numberOfBlock) {
     var innerHtml = "<div class='Show' id='" + divID + "Show'>";
     for (var i = 1; i < 13; i++){
-        innerHtml += '<img src="pictures/' + i + '.png" class="ShowPicture" id="' + divID + "ShowPicture" + i + '">';
+        innerHtml += '<img src="pictures/' + numberOfBlock + "." + i + '.png" class="ShowPicture" id="' + divID + "ShowPicture" + i + '">';
     }
     innerHtml += "</div><div class='Display' id='" + divID + "Display'>";
     for (var i = 1; i < 4; i++){
-        innerHtml += '<img src="pictures/' + i + '.png" class="DisplayPicture" id="' + divID + "DisplayPicture" + i + '">';
+        innerHtml += '<img src="pictures/' + numberOfBlock + "." + i + '.png" class="DisplayPicture" id="' + divID + "DisplayPicture" + i + '">';
     }
     innerHtml += "</div>";
     document.getElementById(divID).innerHTML = innerHtml;
