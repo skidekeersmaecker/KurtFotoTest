@@ -3,16 +3,13 @@ window.onload = function(){
     setPictureBlocks();
 };
 
-
 function setPictureBlocks() {
-    setPictures("block1");
-    setPictures("block2");
-    setPictures("block3");
+    for (var i = 1; i <= document.getElementsByClassName("PictureBlock").length; i++) {
+        setPictures("block" + i);
+    }
 }
 function setPictures(divID) {
     setPicturesInHtml(divID);
-
-
     setSizesPicturesOfClass("ShowPicture", 12);
     setSizesPicturesOfClass("DisplayPicture", 3);
 }
@@ -28,7 +25,6 @@ function setPicturesInHtml(divID) {
     innerHtml += "</div>";
     document.getElementById(divID).innerHTML = innerHtml;
 }
-
 function setSizesPicturesOfClass(className, amountOfImages) {
     var pictureElements = document.getElementsByClassName(className);
     var length = pictureElements.length;
