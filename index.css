@@ -1,7 +1,6 @@
-.show{
-    border: 1px black solid;
+.Show, .Display{
+    border: 1px red solid;
 }
-
-.display{
+.ShowPicture, .DisplayPicture{
     border: 1px black solid;
 }
