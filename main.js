@@ -18,13 +18,12 @@ function setPicturesInHtml(divID, numberOfBlock) {
     var imageNumber = "";
     for (var i = 1; i < 13; i++){
         imageNumber = numberOfBlock + "." + i;
-        //innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" onclick="ImageClick(this.parentNode.parentNode.id, ' + imageNumber + ')">';
-        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" onclick="ImageClick(' + numberOfBlock + ', ' + imageNumber + ')">';
+        innerHtml += '<img src="pictures/' + numberOfBlock + '.' + i + '.png" class="ShowPicture" onclick="ImageClick(' + numberOfBlock + ', ' + i + ')">';
     }
     innerHtml += "</div><div class='Display'>";
     for (var i = 1; i < 4; i++){
         imageNumber = numberOfBlock + "." + i;
-        innerHtml += '<img src="pictures/' + imageNumber + '.png" id="' + imageNumber + '" class="DisplayPicture" onclick="ImageClick(' + imageNumber + ')">';
+        innerHtml += '<img src="pictures/' + numberOfBlock + '.' + i + '.png" id="' + numberOfBlock + '.' + i + '" class="DisplayPicture">';
     }
     innerHtml += "</div>";
     document.getElementById(divID).innerHTML = innerHtml;
@@ -42,12 +41,13 @@ function ImageClick(numberDivID, imageNumber) {
     console.log(numberDivID + " " + imageNumber); //de geklickte krijgt een eigen vaste plaats, dus bijvoorbeed de middelste (2)
 
     //MIDDLE PICTURE
-    document.getElementById(numberDivID + ".2").src = "pictures/" + imageNumber + ".png";
+    document.getElementById(numberDivID + ".2").src = "pictures/" + numberDivID + "." + imageNumber + ".png";
 
     //LEFT PICTURE
+    document.getElementById(numberDivID + ".1").src = "pictures/" + numberDivID + "." + (imageNumber-1) + ".png";
 
     //RIGHT PICTURE
-    
+    document.getElementById(numberDivID + ".3").src = "pictures/" + numberDivID + "." + (imageNumber+1) + ".png";
 }
 
 function placePictureInDisplay(divID, imageNumber, displayNumber) {
