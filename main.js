@@ -18,12 +18,13 @@ function setPicturesInHtml(divID, numberOfBlock) {
     var imageNumber = "";
     for (var i = 1; i < 13; i++){
         imageNumber = numberOfBlock + "." + i;
-        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" onclick="ImageClick(' + imageNumber + ')">';
+        //innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" onclick="ImageClick(this.parentNode.parentNode.id, ' + imageNumber + ')">';
+        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="ShowPicture" onclick="ImageClick(' + numberOfBlock + ', ' + imageNumber + ')">';
     }
     innerHtml += "</div><div class='Display'>";
     for (var i = 1; i < 4; i++){
         imageNumber = numberOfBlock + "." + i;
-        innerHtml += '<img src="pictures/' + imageNumber + '.png" class="DisplayPicture" onclick="ImageClick(' + imageNumber + ')">';
+        innerHtml += '<img src="pictures/' + imageNumber + '.png" id="' + imageNumber + '" class="DisplayPicture" onclick="ImageClick(' + imageNumber + ')">';
     }
     innerHtml += "</div>";
     document.getElementById(divID).innerHTML = innerHtml;
@@ -37,11 +38,18 @@ function setSizesPicturesOfClass(className, amountOfImages) {
     }
 }
 
-function ImageClick(imageNumber) {
-    console.log(imageNumber);
-    //calculate images to display
-        //als x wordt geklikt
-        //formule 1 voor ene foto
-        //formule 2 voor andere foto
-    //set images on display images
+function ImageClick(numberDivID, imageNumber) {
+    console.log(numberDivID + " " + imageNumber); //de geklickte krijgt een eigen vaste plaats, dus bijvoorbeed de middelste (2)
+
+    //MIDDLE PICTURE
+    document.getElementById(numberDivID + ".2").src = "pictures/" + imageNumber + ".png";
+
+    //LEFT PICTURE
+
+    //RIGHT PICTURE
+    
+}
+
+function placePictureInDisplay(divID, imageNumber, displayNumber) {
+
 }
