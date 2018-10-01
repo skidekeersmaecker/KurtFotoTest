@@ -44,18 +44,20 @@ function ImageClick(numberDivID, imageNumber) {
     console.log("middle: " + array);
     array.splice(array.indexOf(imageNumber), 1);
 
-    //MIDDLE PICTURE
-    document.getElementById(numberDivID + ".2").src = "pictures/" + numberDivID + "." + imageNumber + ".png";
+        //MIDDLE PICTURE
+    setSrcOfPicture(numberDivID, 2, imageNumber);
 
-    //LEFT PICTURE
+        //LEFT PICTURE
     var left = array[Math.floor(Math.random() * array.length)];
-    document.getElementById(numberDivID + ".1").src = "pictures/" + numberDivID + "." + left + ".png";
-    console.log("left: " + array);
+    setSrcOfPicture(numberDivID, 1, left);
 
-    //RIGHT PICTURE
+        //RIGHT PICTURE
     array.splice(array.indexOf(left), 1);
     var right = array[Math.floor(Math.random() * array.length)];
-    document.getElementById(numberDivID + ".3").src = "pictures/" + numberDivID + "." + right + ".png";
-    console.log("right: " + array);
+    setSrcOfPicture(numberDivID, 3, right);
+}
+
+function setSrcOfPicture(numberDivID, displayNumber, numberOfImage) {
+    document.getElementById(numberDivID + "." + displayNumber).src = "pictures/" + numberDivID + "." + numberOfImage + ".png";
 }
 
