@@ -40,16 +40,22 @@ function setSizesPicturesOfClass(className, amountOfImages) {
 function ImageClick(numberDivID, imageNumber) {
     console.log(numberDivID + " " + imageNumber); //de geklickte krijgt een eigen vaste plaats, dus bijvoorbeed de middelste (2)
 
+    var array = [1,2,3,4,5,6,7,8,9,10,11,12];
+    console.log("middle: " + array);
+    array.splice(array.indexOf(imageNumber), 1);
+
     //MIDDLE PICTURE
     document.getElementById(numberDivID + ".2").src = "pictures/" + numberDivID + "." + imageNumber + ".png";
 
     //LEFT PICTURE
-    document.getElementById(numberDivID + ".1").src = "pictures/" + numberDivID + "." + (imageNumber-1) + ".png";
+    var left = array[Math.floor(Math.random() * array.length)];
+    document.getElementById(numberDivID + ".1").src = "pictures/" + numberDivID + "." + left + ".png";
+    console.log("left: " + array);
 
     //RIGHT PICTURE
-    document.getElementById(numberDivID + ".3").src = "pictures/" + numberDivID + "." + (imageNumber+1) + ".png";
+    array.splice(array.indexOf(left), 1);
+    var right = array[Math.floor(Math.random() * array.length)];
+    document.getElementById(numberDivID + ".3").src = "pictures/" + numberDivID + "." + right + ".png";
+    console.log("right: " + array);
 }
 
-function placePictureInDisplay(divID, imageNumber, displayNumber) {
-
-}
